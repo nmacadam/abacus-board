@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+//import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Top-Level Components
+import Layout from './Layout';
+import Toolbar from './Toolbar';
+import FileDropzone from './FileDropzone';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      results: {}
+    }
+    this.state = {
+      isInitialized: false,
+      files: []
+    };
+  }
+
+  callbackFunction = (acceptedFiles) => {
+    this.setState((state) => {
+      return { isInitialized: true, files: acceptedFiles }
+    });
+  }
+
+  // render the toolbar and swap between layout and file dropzone depending on if files have been read
+  render() {
+    return (
+      <div>
+        <Toolbar hasFiles={this.state.isInitialized} />
+        { this.state.isInitialized
+          ? <Layout files={this.state.files} />
+          : <FileDropzone parentCallback={this.callbackFunction} />
+        }
+      </div>
+    );
+  }
 }
 
 export default App;
