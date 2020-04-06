@@ -1,85 +1,67 @@
+import Splitwatch from "./Splitwatch";
+
 // Constructs the layout from the input files
-//var content = [];
-
-// uhhghghhh async makes this HARD
-// this does NOT WORK YET! it just returns a default thing for testing stuff out
-
 class LayoutFactory {
     constructor(files) 
     {
-        //this.content = [];
+        this.files = files;
+        this.contents = [];
 
-        for (let i = 0; i < files.length; i++)
-        {
-            if (files[i]) this.parseFile(files[i]);
-        }
-
-        this.content = [];
+        this.config = undefined;
         this.onLayoutBuilt = function() {};
+    }
+
+    build()
+    {
+        for (let i = 0; i < this.files.length; i++)
+        {
+            if (this.files[i]) this.parseFile(this.files[i]);
+        }
+    }
+
+    // where the magic will eventually happen
+    assignContents(evt)
+    {
+        //console.log(evt.target.result);
+
+        // process file contents into window components
+        //let components = [];
+        
+        // 
+        this.contents.push(Splitwatch.windowData
+            /* {
+                title: '⏲ Splitwatch',
+                type: 'react-component',
+                component: 'splitwatch',
+                tooltip: 'sequential event durations',
+                props: { value: 'I\'m on the left' }
+            } */
+        );
+
+        if (this.contents.length === this.files.length)
+        {
+            this.config = {
+                content: [{
+                    type: 'row',
+                    content: this.contents
+                }]
+            };
+            this.onLayoutBuilt();
+        }
     }
 
     parseFile(file)
     {
         var reader = new FileReader();
-        reader.readAsText(file, "UTF-8");
-        reader.onload = function (evt) {
-            console.log(evt.target.result);
-            /* content.push(
-                {
-                    title: 'A react component',
-                    type: 'react-component',
-                    component: 'numeric-set',
-                    props: { value: 'I\'m on the left' }
-                }
-            ); */
-            
-        }
+
+        // assign on load callback using => function so the 'this' instance persists into the callback scope 
+        reader.onload = (evt) => { this.assignContents(evt); }
+
         reader.onerror = function (evt) {
             console.log("error reading file");
         }
-    }
-
-    // notice we are returning nested "content" blocks
-    build()
-    {
-        return {
-            content: [{
-                type: 'row',
-                //content: content
-                content: [
-                    {
-                        type: "stack",
-
-                        content: [
-                            {
-                                title: 'A react component',
-                                type: 'react-component',
-                                component: 'numeric-set',
-                                props: { value: 'I\'m on the left' }
-                            },
-                            {
-                                title: 'A react component',
-                                type: 'react-component',
-                                component: 'numeric-set',
-                                props: { value: 'I\'m on the left' }
-                            }
-                        ]
-                    },
-                    {
-                        title: 'A react component',
-                        type: 'react-component',
-                        component: 'numeric-set',
-                        props: { value: 'I\'m on the left' }
-                    },
-                    {
-                        title: 'A react component',
-                        type: 'react-component',
-                        component: 'numeric-set',
-                        props: { value: 'I\'m on the left' }
-                    }
-                ]
-            }]
-        };
+        
+        reader.readAsText(file, "UTF-8");
     }
 }
 

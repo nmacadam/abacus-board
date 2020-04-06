@@ -1,3 +1,5 @@
+/* DEPRECATED (but probably reusable) */
+
 import React, { Component } from 'react';
 
 class FileDialogue extends React.Component {
@@ -22,7 +24,7 @@ class FileDialogue extends React.Component {
 
     var file = evt.target.files[0]; // FileList object
     if (file) {
-      if (file.type != ".json" || file.type != ".abc") {
+      if (file.type !== ".json" || file.type !== ".abc") {
         console.log("Invalid file type");
       }
       var reader = new FileReader();

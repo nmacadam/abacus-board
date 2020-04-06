@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 .App {
   text-align: center;
 }
@@ -39,11 +43,14 @@
 
 h1 {
   color: #eeeeee;
+  font-family: 'Fredoka One', Helvetica, sans-serif;
+  font-style: normal;
 }
 
 body {
-  background-color: #000000;
+  background-color: #111111;
   color: #cccccc;
+  font-family: "Roboto", Helvetica, sans-serif;
 }
 
 .Window-Content {
@@ -51,7 +58,7 @@ body {
 }
 
 .Project-Data {
-  font-family: "Lucida Console", Courier, monospace;
+  font-family: "Roboto Mono", Courier, monospace;
   font-size: small;
   line-height: 50%;
 }
@@ -99,9 +106,9 @@ body {
   background: #ffffff;
   padding: 5px;
 
-  font-family: "Lucida Console", Courier, monospace;
+  font-family: "Roboto Mono", Courier, monospace;
   font-size: small;
-  color: #000000;
+  color: #111111;
 }
 
 .chartWrapper {
@@ -136,7 +143,7 @@ body {
   height: 100%;
   border-color: #eeeeee;
   border-style: dashed;
-  background-color: #000000;
+  background-color: #111111;
   color: #bdbdbd;
   outline: none;
   transition: 0.3s;
@@ -144,4 +151,55 @@ body {
 
 .dropzone:hover {
   border-color: rgba(54, 162, 235, 1);
+}
+
+.dataTableContainer {
+  overflow-x: auto;
+}
+
+.dataTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.dataTableRow:hover {
+  background-color:#333;
+}
+
+.dataTableCell {
+  border-bottom: 1px solid #555;
+  text-align: left;
+  padding: 5px;
+}
+
+body .lm_content{
+  overflow: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+  background: #222222;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

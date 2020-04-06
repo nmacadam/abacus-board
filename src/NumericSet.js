@@ -7,21 +7,14 @@ import AbacusMath from './AbacusMath';
 
 import Statistics from './Statistics';
 
-window.chartColors = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
-    green: 'rgb(70, 227, 149)',
-    blue: 'rgb(54, 162, 235)',
-    purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(201, 203, 207)'
-};
-
-function randomScalingFactor() {
-    return Math.floor(Math.random() * (100 + 100)) + 100;
-}
-
 class NumericSet extends Component {
+    static windowData = {
+        title: '📈 Numeric Set',
+        type: 'react-component',
+        component: 'numeric-set',
+        tooltip: 'numeric data set'
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -36,16 +29,16 @@ class NumericSet extends Component {
 
         this.labels = [];
 
+        this.props.glContainer.setTitle(`📈 Numeric Set ${Utility.randomDemoWord()}`);
+
+        this.canvasID = "chart" + Utility.generateUUID();
+
         for (let i = 0; i < 30; i++)
         {
             this.labels.push(i);
-            this.dataSetA.push(randomScalingFactor());
-            this.dataSetB.push(randomScalingFactor());
+            this.dataSetA.push(Utility.randomScalingFactor());
+            this.dataSetB.push(Utility.randomScalingFactor());
         }
-
-        this.props.glContainer.setTitle("📈 Numeric Set [" + this.variableName + "]");
-
-        this.canvasID = "chart" + Utility.generateUUID();
     }
 
     render() {

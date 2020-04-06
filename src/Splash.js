@@ -1,3 +1,5 @@
+/* DEPRECATED */
+
 import React, { Component } from 'react';
 import FileDialogue from './FileDialogue';
 

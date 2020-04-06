@@ -7,6 +7,27 @@ class Utility {
         });
     }
 
+    static randomDemoWord()
+    {
+        var names = [
+            'computrons',
+            'flops',
+            'positions',
+            'segments',
+            'miners',
+            'blocks',
+            'peripherals',
+            'relations',
+            'networks'
+        ]
+
+        return names[Math.floor(Math.random() * names.length)];
+    }
+
+    static randomScalingFactor() {
+        return Math.floor(Math.random() * (100 + 100)) + 100;
+    }
+
     static randomChartColor()
     {
         var colors = [

@@ -5,7 +5,11 @@ import GoldenLayout from 'golden-layout';
 import LayoutFactory from './LayoutFactory';
 
 // Layout Components
+import GenericSet from './GenericSet';
 import NumericSet from './NumericSet';
+import Timestamp from './Timestamp';
+import Stopwatch from './Stopwatch';
+import Splitwatch from './Splitwatch';
 
 // Displays the GoldenLayout layout for the project
 class Layout extends Component {
@@ -23,10 +27,34 @@ class Layout extends Component {
     drawLayout() {
         setTimeout(() => {
             let factory = new LayoutFactory(this.files);
-            const config = factory.build();
-            const layout = new GoldenLayout(config);
-            layout.registerComponent('numeric-set', NumericSet);
-            layout.init();
+            factory.onLayoutBuilt = function() {
+                //const layout = new GoldenLayout(factory.config);
+                const layout = new GoldenLayout({
+                    content: [{
+                        type: 'row',
+                        content: [
+                            NumericSet.windowData,
+                            GenericSet.windowData,
+                            Timestamp.windowData,
+                            Splitwatch.windowData,
+                            Stopwatch.windowData
+                        ]
+                    }]
+                });
+                layout.registerComponent('numeric-set', NumericSet);
+                layout.registerComponent('generic-set', GenericSet);
+                layout.registerComponent('timestamp', Timestamp);
+                layout.registerComponent('stopwatch', Stopwatch);
+                layout.registerComponent('splitwatch', Splitwatch);
+
+                layout.on( 'tabCreated', function( tab ){
+                    tab.element.attr('title', tab.contentItem.config.tooltip);
+                });
+
+                layout.init();
+            }
+            
+            factory.build();
         }, 0);
     }
 
