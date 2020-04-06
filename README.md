@@ -3,8 +3,11 @@
  
 ### to run & work on this
 make sure you have node.js installed
+
 clone/download this repo (preferably clone since we want to use the version control)
+
 open the command prompt
+
 type the following commands
 ```
 cd the-path-i-put-the-files-at
