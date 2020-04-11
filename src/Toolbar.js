@@ -20,7 +20,7 @@ class Toolbar extends Component {
                 <h1>📋abacus board</h1>
             </div>
             <div className="ToolbarInner" style={{marginLeft: "25px"}}>
-                <ProjectData />
+                <ProjectData data={this.props.projectData} />
             </div>
             { this.hasFiles &&
               <div className="ToolbarInner">

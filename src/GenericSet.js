@@ -16,15 +16,21 @@ class GenericSet extends Component {
           results: {}
         }
 
-        this.variableName = props.variableName || "VARIABLE NAME";
-        this.dataSet = [];
+        this.variableName = props.variableName || "NAME";
+        this.variableType = props.variableType || "TYPE";
+        this.dataSet = props.dataSet || [];
 
-        //GenericSet.windowData.title = "💽 Generic Set [" + this.variableName + "]"
-
-        for (let i = 0; i < 30; i++)
+        /*for (let i = 0; i < 30; i++)
         {
             this.dataSet.push({time: i, data: Utility.randomScalingFactor()});
-        }
+        }*/
+    }
+
+    prettyPrintValue(value)
+    {
+        return Object.keys(value).map((name, index) =>
+            <p key={index}>{name} = {value[name]}</p>
+        );
     }
 
     render()
@@ -32,8 +38,8 @@ class GenericSet extends Component {
         // build HTML table elements out of data set
         const tableData = this.dataSet.map((data, index) =>
             <tr className="dataTableRow" key={index}>
-                <td className="dataTableCell">{data.time}</td>
-                <td className="dataTableCell">{data.data}</td>
+                <td className="dataTableCell">{data.Time.toFixed(1)}</td>
+                <td className="dataTableCell">{this.prettyPrintValue(data.Value)}</td>
             </tr>
         );
 

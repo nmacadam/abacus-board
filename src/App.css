@@ -203,3 +203,9 @@ body .lm_content{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+#layoutContainer {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}

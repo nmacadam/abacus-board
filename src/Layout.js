@@ -20,16 +20,19 @@ class Layout extends Component {
         }
 
         this.files = props.files;
+        this.hasRendered = false;
+        //this.callback = function(args) { props.parentCallback(args) };
     }
 
     // since goldenlayout works outside of the react pipeline we need to give it just a sec
     // to make sure it can initalize before react tries to draw it
     drawLayout() {
-        setTimeout(() => {
+        //setTimeout(() => {
             let factory = new LayoutFactory(this.files);
-            factory.onLayoutBuilt = function() {
-                //const layout = new GoldenLayout(factory.config);
-                const layout = new GoldenLayout({
+            let element = document.getElementById("layoutContainer");
+            factory.onLayoutBuilt = e => {
+                const layout = new GoldenLayout(factory.config, element);
+                /*const layout = new GoldenLayout({
                     content: [{
                         type: 'row',
                         content: [
@@ -40,7 +43,7 @@ class Layout extends Component {
                             Stopwatch.windowData
                         ]
                     }]
-                });
+                });*/
                 layout.registerComponent('numeric-set', NumericSet);
                 layout.registerComponent('generic-set', GenericSet);
                 layout.registerComponent('timestamp', Timestamp);
@@ -51,11 +54,20 @@ class Layout extends Component {
                     tab.element.attr('title', tab.contentItem.config.tooltip);
                 });
 
+                //layout._isFullPage = true;
                 layout.init();
+                this.props.parentCallback(factory.projectData);
+                //this.callback(factory.projectData);
             }
             
             factory.build();
-        }, 0);
+            this.hasRendered = true;
+        //}, 0);
+    }
+
+    shouldComponentUpdate(nextProps, nextState)
+    {
+        return !this.hasRendered;
     }
 
     componentDidMount() {
@@ -69,7 +81,12 @@ class Layout extends Component {
     // Return an empty element, the rendering for the layout isnt react based
     // so we'll just make it draw when react wants stuff rendered
     render() {
-        return (<div />);
+        var h = window.innerHeight;
+        var ht = 90; // magic! :(
+        var hc = h - ht;
+        
+
+        return (<div id="layoutContainer" style={{height: hc}} />);
     }
 }
 

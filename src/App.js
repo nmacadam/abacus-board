@@ -7,6 +7,8 @@ import Layout from './Layout';
 import Toolbar from './Toolbar';
 import FileDropzone from './FileDropzone';
 
+//const ThemeContext = React.createContext('light');
+
 class App extends Component {
   constructor() {
     super();
@@ -15,13 +17,26 @@ class App extends Component {
     }
     this.state = {
       isInitialized: false,
-      files: []
+      hasParsed: false,
+      files: [],
+      projectData: {}
     };
   }
 
-  callbackFunction = (acceptedFiles) => {
+  onFilesLoaded = (acceptedFiles) => {
     this.setState((state) => {
-      return { isInitialized: true, files: acceptedFiles }
+      return { isInitialized: true, hasParsed: this.state.hasParsed, files: acceptedFiles, projectData: this.state.projectData}
+    });
+  }
+
+  onFilesParsed = (data) => {
+    this.setState((state) => {
+      return { 
+        isInitialized: this.state.isInitialized, 
+        hasParsed: true,
+        files: this.state.files,
+        projectData: data
+      }
     });
   }
 
@@ -29,10 +44,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Toolbar hasFiles={this.state.isInitialized} />
+        <Toolbar id="toolbar" hasFiles={this.state.isInitialized} projectData={this.state.projectData} />
         { this.state.isInitialized
-          ? <Layout files={this.state.files} />
-          : <FileDropzone parentCallback={this.callbackFunction} />
+          ? <Layout parentCallback={this.onFilesParsed}  files={this.state.files} />
+          : <FileDropzone parentCallback={this.onFilesLoaded} />
         }
       </div>
     );

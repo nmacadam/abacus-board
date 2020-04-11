@@ -7,23 +7,30 @@ class ProjectData extends Component {
         results: {}
       }
 
-      this.name = "name";
-      this.author = "author";
-      this.platform = "platform";
-      this.version = "v.1.0.0";
       this.unityVersion = "2019.3";
       this.duration = "12:00am - 12:10am, 1/1/2020"
     }
   
     render() {
-      return (
-        <div className="Project-Data">
-            <p>{this.name} {this.version}</p>
-            <p>{this.platform}, unity {this.unityVersion}</p>
-            <p>by {this.author}</p>
-            <p>dataset from {this.duration}</p>
-        </div>
-      );
+      let data = this.props.data;
+      let isEmpty = Object.keys(data).length === 0 && data.constructor === Object;
+
+      if (isEmpty)
+      {
+        return <div className="Project-Data" />
+      }
+      else
+      {
+        return (
+          <div className="Project-Data">
+              <p>{data.Name} v.{data.Version}</p>
+              <p>{data.Platform}, unity {data.UnityVersion}</p>
+              <p>by {data.Author}</p>
+              <p>dataset from {data.StartTime} - {data.EndTime}, {data.Date} ({data.Duration})</p>
+          </div>
+        );
+      }
+      
     }
 }
 

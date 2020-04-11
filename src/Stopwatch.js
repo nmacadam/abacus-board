@@ -17,13 +17,11 @@ class Stopwatch extends Component {
         this.name = props.variableName || "VARIABLE NAME";
         this.dataSet = [];
 
-        //Stopwatch.windowData = "⏱ Stopwatch " + this.name;
-
-        for (let i = 0; i < 30; i++)
+        for (let i = 0; i < props.dataSet.length; i++)
         {
-            let start = i;
-            let finish = i + 2;
-            let duration = finish - start;
+            let start = props.dataSet[i].StartTime.toFixed(2);
+            let finish = props.dataSet[i].EndTime === -1 ? '-' : props.dataSet[i].EndTime.toFixed(2);
+            let duration = props.dataSet[i].Duration.toFixed(2);
             this.dataSet.push({start: start, finish: finish, duration: duration});
         }
     }

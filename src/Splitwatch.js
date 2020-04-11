@@ -18,12 +18,12 @@ class Splitwatch extends Component {
         //this.variableName = props.variableName || "VARIABLE NAME";
         this.dataSet = [];
 
-        for (let i = 0; i < 30; i++)
+        for (let i = 0; i < props.dataSet.length; i++)
         {
-            let label = Utility.randomDemoWord();
-            let start = i;
-            let finish = i + 2;
-            let duration = finish - start;
+            let label = props.dataSet[i].Name;
+            let start = props.dataSet[i].StartTime.toFixed(2);
+            let finish = props.dataSet[i].EndTime === -1 ? '-' : props.dataSet[i].EndTime.toFixed(2);
+            let duration = props.dataSet[i].Duration.toFixed(2);
             this.dataSet.push({label: label, start: start, finish: finish, duration: duration});
         }
     }

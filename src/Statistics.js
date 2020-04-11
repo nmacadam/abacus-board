@@ -27,21 +27,28 @@ class Statistics extends Component {
                         <tr>
                             <td>
                                 <div className="statisticBox">
-                                    median: {stats.median}
+                                    median: {stats.median.toFixed(2)}
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div className="statisticBox">
-                                    max: {stats.max}
+                                    max: {stats.max.toFixed(2)}
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div className="statisticBox">
-                                    min: {stats.min}
+                                    min: {stats.min.toFixed(2)}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div className="statisticBox">
+                                    stddev: {stats.stddev.toFixed(2)}
                                 </div>
                             </td>
                         </tr>

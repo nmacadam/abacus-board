@@ -21,23 +21,26 @@ class NumericSet extends Component {
             results: {}
         }
 
-        this.variableName = props.variableName || "VARIABLE NAME";
+        this.variableName = props.variableName || "NAME";
+        this.variableType = props.variableType || "TYPE";
+        this.dataSet = props.dataSet || [];
+
         this.xAxisLabel = props.xAxisLabel || "Time (s)";
         this.yAxisLabel = props.yAxisLabel || "Value";
-        this.dataSetA = [];
-        this.dataSetB = [];
 
         this.labels = [];
+        this.chartSet = [];
 
-        this.props.glContainer.setTitle(`📈 Numeric Set ${Utility.randomDemoWord()}`);
+        //this.props.glContainer.setTitle(`📈 Numeric Set ${Utility.randomDemoWord()}`);
 
         this.canvasID = "chart" + Utility.generateUUID();
 
-        for (let i = 0; i < 30; i++)
+        for (let i = 0; i < this.dataSet.length; i++)
         {
-            this.labels.push(i);
-            this.dataSetA.push(Utility.randomScalingFactor());
-            this.dataSetB.push(Utility.randomScalingFactor());
+            let data = this.dataSet[i];
+            this.labels.push(data.Time.toFixed(1));
+            this.chartSet.push(data.Value);
+            //this.dataSetB.push(Utility.randomScalingFactor());
         }
     }
 
@@ -48,7 +51,7 @@ class NumericSet extends Component {
                     <canvas id={this.canvasID} aria-label="Numeric Set Line Chart" role="img" />
                 </div>
                 <br />
-                <Statistics dataset={this.dataSetA} />
+                <Statistics dataset={this.chartSet} />
             </div>
         );
     }
@@ -60,17 +63,11 @@ class NumericSet extends Component {
             data: {
                 labels: this.labels,
                 datasets: [{
-                    label: 'My First dataset',
+                    label: this.variableName,
                     backgroundColor: Utility.randomChartColor(),
                     borderColor: Utility.randomChartColor(),
-                    data: this.dataSetA,
+                    data: this.chartSet,
                     fill: false,
-                }, {
-                    label: 'My Second dataset',
-                    fill: false,
-                    backgroundColor: Utility.randomChartColor(),
-                    borderColor: Utility.randomChartColor(),
-                    data: this.dataSetB,
                 }]
             },
             options: {

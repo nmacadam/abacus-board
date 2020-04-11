@@ -20,9 +20,9 @@ class Timestamp extends Component {
 
         //this.props.glContainer.setTitle("⌛ Timestamp");
 
-        for (let i = 0; i < 30; i++)
+        for (let i = 0; i < props.dataSet.length; i++)
         {
-            this.dataSet.push({time: i, data: Utility.randomDemoWord()});
+            this.dataSet.push({time: props.dataSet[i].Time.toFixed(2), data: props.dataSet[i].Name});
         }
     }
 
