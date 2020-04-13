@@ -115,7 +115,11 @@ class LayoutFactory {
         for (let i = 0; i < input.Records.length; i++)
         {
             let record = input.Records[i];
-            if (record.Data.length === 0) continue;
+            if (record.Data.length === 0) 
+			{
+				this.windowCount--;
+				continue;
+			}
 
             //let windowContents = {};
 
@@ -151,6 +155,9 @@ class LayoutFactory {
         if (this.contents.length === this.windowCount)
         {
             this.config = {
+				settings:{
+					showPopoutIcon: false
+				},
                 dimensions: {
                     borderWidth: 1,
                     minItemHeight: 10,
