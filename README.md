@@ -34,3 +34,4 @@ http://golden-layout.com/examples/
 - finalize ui & look-feel for modules
 - unit/integration testing
 - generate documentation (docusaurus?)
+- remove unused plugins from package.json
