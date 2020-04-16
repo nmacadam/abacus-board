@@ -28,9 +28,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "jest": {
-    "verbose": true
-  },
   "browserslist": {
     "production": [
       ">0.2%",
