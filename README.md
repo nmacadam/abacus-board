@@ -36,5 +36,5 @@ http://golden-layout.com/examples/
 - set required file type(s)
 - finalize ui & look-feel for modules
 - unit/integration testing
-- generate documentation (docusaurus?)
-- remove unused plugins from package.json
+- electron desktop app
+- add a display demo material button
