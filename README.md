@@ -5,6 +5,10 @@
 
  abacus data visualization web-app
  
+<p align="center">
+  <img src="https://dl.dropboxusercontent.com/s/pi4sq5l6k8ryulk/boardScreenshot.PNG?dl=0">
+</p>
+
 ### to run & work on this
 make sure you have node.js installed
 
