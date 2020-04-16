@@ -1,6 +1,7 @@
 # abacus-board
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.com/nmacadam/abacus-board.svg?token=ny5jLdMxZTMpHBEyrbcp&branch=master)](https://travis-ci.com/nmacadam/abacus-board)
+[![License: MIT](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
  abacus data visualization web-app
  
