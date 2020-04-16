@@ -1,4 +1,6 @@
 # abacus-board
+[![Build Status](https://travis-ci.com/nmacadam/abacus-board.svg?token=ny5jLdMxZTMpHBEyrbcp&branch=master)](https://travis-ci.com/nmacadam/abacus-board)
+
  abacus data visualization web-app
  
 ### to run & work on this
