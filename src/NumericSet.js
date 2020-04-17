@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 
 import Utility from './Utility';
-import AbacusMath from './AbacusMath';
 
 import Statistics from './Statistics';
 

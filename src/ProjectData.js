@@ -6,14 +6,11 @@ class ProjectData extends Component {
       this.state = {
         results: {}
       }
-
-      this.unityVersion = "2019.3";
-      this.duration = "12:00am - 12:10am, 1/1/2020"
     }
   
     render() {
       let data = this.props.data;
-      let isEmpty = Object.keys(data).length === 0 && data.constructor === Object;
+      let isEmpty = !data || Object.keys(data).length === 0 && data.constructor === Object;
 
       if (isEmpty)
       {

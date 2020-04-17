@@ -66,7 +66,6 @@ class Statistics extends Component {
         let sum = 0;
         let min = Infinity;
         let max = Number.NEGATIVE_INFINITY;
-        let range = max - min;
 
         // get average
         for (let i = 0; i < dataset.length; i++){
@@ -75,6 +74,8 @@ class Statistics extends Component {
             if (dataset[i] > max) max = dataset[i];
         }
         let average = (sum / dataset.length);
+        
+        let range = max - min;
 
         // get standard deviation
         let stdvalues = [];

@@ -24,6 +24,11 @@ class LayoutFactory {
         }
     }
 
+    buildDirect(json)
+    {
+        this.assignContents(json);
+    }
+
     constructSet(record)
     {
         let memberCount = Object.keys(record.Data[0].Value).length;
@@ -101,16 +106,17 @@ class LayoutFactory {
         } 
     }
 
-    // where the magic will eventually happen
-    assignContents(evt)
+    // where the magic happens
+    assignContents(json)
     {
         //console.log(evt.target.result);
 
         // process file contents into window components
-        let input = JSON.parse(evt.target.result);
+        let input = JSON.parse(json);
         this.windowCount = input.Records.length;
 
         this.projectData = input.ProjectData;
+        //console.log(this.projectData);
 
         for (let i = 0; i < input.Records.length; i++)
         {
@@ -186,7 +192,7 @@ class LayoutFactory {
         var reader = new FileReader();
 
         // assign on load callback using => function so the 'this' instance persists into the callback scope 
-        reader.onload = (evt) => { this.assignContents(evt); }
+        reader.onload = (evt) => { this.assignContents(evt.target.result); }
 
         reader.onerror = function (evt) {
             console.log("error reading file");

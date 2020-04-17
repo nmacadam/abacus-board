@@ -19,13 +19,20 @@ class App extends Component {
       isInitialized: false,
       hasParsed: false,
       files: [],
-      projectData: {}
+      projectData: {},
+      buildDemo: false,
     };
   }
 
   onFilesLoaded = (acceptedFiles) => {
     this.setState((state) => {
-      return { isInitialized: true, hasParsed: this.state.hasParsed, files: acceptedFiles, projectData: this.state.projectData}
+      return { 
+        isInitialized: true, 
+        hasParsed: this.state.hasParsed, 
+        files: acceptedFiles, 
+        projectData: this.state.projectData,
+        buildDemo: false,
+      }
     });
   }
 
@@ -35,7 +42,20 @@ class App extends Component {
         isInitialized: this.state.isInitialized, 
         hasParsed: true,
         files: this.state.files,
-        projectData: data
+        projectData: data,
+        buildDemo: false,
+      }
+    });
+  }
+
+  startDemo = () => {
+    this.setState((state) => {
+      return { 
+        isInitialized: true, 
+        hasParsed: this.state.hasParsed, 
+        files: ['D:/Abacus Board/abacus-board/exampleInput.json'], 
+        projectData: this.state.projectData,
+        buildDemo: true,
       }
     });
   }
@@ -46,8 +66,15 @@ class App extends Component {
       <div>
         <Toolbar id="toolbar" hasFiles={this.state.isInitialized} projectData={this.state.projectData} />
         { this.state.isInitialized
-          ? <Layout parentCallback={this.onFilesParsed}  files={this.state.files} />
-          : <FileDropzone parentCallback={this.onFilesLoaded} />
+          ? <Layout parentCallback={this.onFilesParsed}  files={this.state.files} buildDemo={this.state.buildDemo} />
+          : (
+            <div>
+              <FileDropzone parentCallback={this.onFilesLoaded} />
+              <div className='footer'>
+                <a href="#" className="demo-button" onClick={this.startDemo}>load demo</a>
+              </div>
+            </div>
+          )
         }
       </div>
     );

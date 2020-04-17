@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import ProjectData from './ProjectData';
-import FileDialogue from './FileDialogue';
 
 class Toolbar extends Component {
     constructor(props){
@@ -24,7 +23,7 @@ class Toolbar extends Component {
             </div>
             { this.hasFiles &&
               <div className="ToolbarInner">
-                <FileDialogue buttonLabel='Regenerate' />
+                {/* <FileDialogue buttonLabel='Regenerate' /> */}
               </div>
             }
         </div>
