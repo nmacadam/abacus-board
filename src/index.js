@@ -12,7 +12,7 @@ ReactDOM.render(
   document.getElementById('root'),  // using the HTML doc's element with the id 'root'
   function()                        // and execute this afterwards
   {
-    console.log("React DOM rendered (callback)");
+    console.log("abacus board v.1.0.0a");
   }
 );
 
