@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/abacus-board/static/css/main.afec16ea.chunk.css",
-    "main.js": "/abacus-board/static/js/main.a3ec59bd.chunk.js",
-    "main.js.map": "/abacus-board/static/js/main.a3ec59bd.chunk.js.map",
-    "runtime-main.js": "/abacus-board/static/js/runtime-main.2d485c87.js",
-    "runtime-main.js.map": "/abacus-board/static/js/runtime-main.2d485c87.js.map",
-    "static/css/2.5901d0a4.chunk.css": "/abacus-board/static/css/2.5901d0a4.chunk.css",
-    "static/js/2.cd72041e.chunk.js": "/abacus-board/static/js/2.cd72041e.chunk.js",
-    "static/js/2.cd72041e.chunk.js.map": "/abacus-board/static/js/2.cd72041e.chunk.js.map",
+    "main.css": "/abacus-board/static/css/main.7fb246df.chunk.css",
+    "main.js": "/abacus-board/static/js/main.8f8b31c5.chunk.js",
+    "main.js.map": "/abacus-board/static/js/main.8f8b31c5.chunk.js.map",
+    "runtime-main.js": "/abacus-board/static/js/runtime-main.bafb4b16.js",
+    "runtime-main.js.map": "/abacus-board/static/js/runtime-main.bafb4b16.js.map",
+    "static/css/2.ac1a31d3.chunk.css": "/abacus-board/static/css/2.ac1a31d3.chunk.css",
+    "static/js/2.cbed3457.chunk.js": "/abacus-board/static/js/2.cbed3457.chunk.js",
+    "static/js/2.cbed3457.chunk.js.map": "/abacus-board/static/js/2.cbed3457.chunk.js.map",
     "index.html": "/abacus-board/index.html",
-    "precache-manifest.82c7955e0808202a53760610d90418e5.js": "/abacus-board/precache-manifest.82c7955e0808202a53760610d90418e5.js",
+    "precache-manifest.deb1b22fbd27bc7cfe53f52df56b689e.js": "/abacus-board/precache-manifest.deb1b22fbd27bc7cfe53f52df56b689e.js",
     "service-worker.js": "/abacus-board/service-worker.js",
-    "static/css/2.5901d0a4.chunk.css.map": "/abacus-board/static/css/2.5901d0a4.chunk.css.map",
-    "static/css/main.afec16ea.chunk.css.map": "/abacus-board/static/css/main.afec16ea.chunk.css.map",
-    "static/js/2.cd72041e.chunk.js.LICENSE.txt": "/abacus-board/static/js/2.cd72041e.chunk.js.LICENSE.txt"
+    "static/css/2.ac1a31d3.chunk.css.map": "/abacus-board/static/css/2.ac1a31d3.chunk.css.map",
+    "static/css/main.7fb246df.chunk.css.map": "/abacus-board/static/css/main.7fb246df.chunk.css.map",
+    "static/js/2.cbed3457.chunk.js.LICENSE.txt": "/abacus-board/static/js/2.cbed3457.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2d485c87.js",
-    "static/css/2.5901d0a4.chunk.css",
-    "static/js/2.cd72041e.chunk.js",
-    "static/css/main.afec16ea.chunk.css",
-    "static/js/main.a3ec59bd.chunk.js"
+    "static/js/runtime-main.bafb4b16.js",
+    "static/css/2.ac1a31d3.chunk.css",
+    "static/js/2.cbed3457.chunk.js",
+    "static/css/main.7fb246df.chunk.css",
+    "static/js/main.8f8b31c5.chunk.js"
   ]
 }
