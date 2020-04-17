@@ -5,6 +5,8 @@
 
  abacus data visualization web-app
  
+[try it out](https://nmacadam.github.io/abacus-board/)
+ 
 <p align="center">
   <img src="https://dl.dropboxusercontent.com/s/pi4sq5l6k8ryulk/boardScreenshot.PNG?dl=0">
 </p>
