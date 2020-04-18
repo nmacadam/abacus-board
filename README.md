@@ -12,8 +12,9 @@ Data visualization & statistics generation for [Abacus](https://github.com/nmaca
 </p>
 
 ### todo
-- figure out layout config (rows, cols, stacks)
-  - add any other relevant layout features
-- enforce required file type(s)
-- finalize ui & look-feel for modules
-- electron desktop app
+- Generate a better auto-layout config (rows, columns, stacks)
+  - Add any other relevant layout features
+- Enforce required file type(s)
+- Finalize UI & look-feel for modules
+- Expand test coverage
+- Package as desktop app
